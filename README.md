@@ -1,5 +1,7 @@
 # Liner
 
+**Live:** https://ydtak.github.io/liner/
+
 A minimal, mobile-first web app for learning chess openings **visually**: pick an opening, explore it on the board with arrows and highlights instead of tables of coordinates and percentages, and tap **"Why?"** to see *why* a move is good, shown on the board.
 
 ## Docs
