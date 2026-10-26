@@ -1,0 +1,489 @@
+{
+  "id": "sicilian-defence",
+  "name": "Sicilian Defence",
+  "side": "black",
+  "kind": "opening",
+  "group": "black-vs-e4",
+  "difficulty": 3,
+  "tagline": "Unbalanced fight, play to win",
+  "intro": "Fight for d4 from the side with ...c5, trade your c-pawn for White's d-pawn, then build the Dragon: bishop on g7, king castled behind it, counterplay down the c-file.",
+  "keyPositionFen": "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9",
+  "plans": [
+    {
+      "name": "Pressure the c-file",
+      "text": "...Bd7 and ...Rc8 put a rook on the half-open c-file, aiming at c3 and White's queenside king.",
+      "marks": [
+        { "type": "plan", "from": "c8", "to": "d7" },
+        { "type": "plan", "from": "f8", "to": "c8" },
+        { "type": "ghost", "square": "c8", "piece": "bR" },
+        { "type": "target", "squares": ["c3"] }
+      ]
+    },
+    {
+      "name": "Trade on d4",
+      "text": "...Nxd4 swaps off White's central knight, then ...Be6 develops with tempo.",
+      "marks": [
+        { "type": "threat", "from": "c6", "to": "d4" },
+        { "type": "plan", "from": "c8", "to": "e6" },
+        { "type": "ghost", "square": "e6", "piece": "bB" }
+      ]
+    },
+    {
+      "name": "Break with ...d5",
+      "text": "When it works tactically, ...d5 opens the centre and wakes up the dragon bishop.",
+      "marks": [
+        { "type": "plan", "from": "d6", "to": "d5" },
+        { "type": "ghost", "square": "d5", "piece": "bP" },
+        { "type": "badge", "square": "g7", "label": "dragon" }
+      ]
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "move": "e2e4", "role": "main", "popularity": 3,
+        "caption": "White takes a central square.",
+        "idea": { "steps": [
+          { "text": "Controls d5 and f5, and opens lines for the bishop and queen.",
+            "marks": [
+              { "type": "control", "squares": ["d5", "f5"] },
+              { "type": "ray", "from": "f1", "to": "a6" },
+              { "type": "ray", "from": "d1", "to": "h5" }
+            ] }
+        ] },
+        "children": [
+          {
+            "move": "c7c5", "role": "main", "popularity": 3,
+            "name": "Sicilian Defence",
+            "caption": "Fights for d4 from the side.",
+            "idea": { "steps": [
+              { "text": "The pawn controls d4, so White can't easily build a big centre.",
+                "marks": [{ "type": "control", "squares": ["d4", "b4"] }] },
+              { "text": "If White plays d4, Black trades the c-pawn for White's d-pawn.",
+                "marks": [
+                  { "type": "plan", "from": "c5", "to": "d4" },
+                  { "type": "badge", "square": "c5", "label": "for d4" }
+                ] }
+            ] },
+            "children": [
+              {
+                "move": "g1f3", "role": "main", "popularity": 3,
+                "caption": "Develops and prepares d4.",
+                "idea": { "steps": [
+                  { "text": "The knight supports d4 next move.",
+                    "marks": [
+                      { "type": "control", "squares": ["d4", "e5"] },
+                      { "type": "plan", "from": "d2", "to": "d4" }
+                    ] }
+                ] },
+                "children": [
+                  {
+                    "move": "d7d6", "role": "main", "popularity": 3,
+                    "caption": "Controls e5 and opens the c8 bishop.",
+                    "idea": { "steps": [
+                      { "text": "Stops e5 ideas and gives the c8 bishop a diagonal.",
+                        "marks": [
+                          { "type": "control", "squares": ["e5"] },
+                          { "type": "ray", "from": "c8", "to": "h3" }
+                        ] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "d2d4", "role": "main", "popularity": 3,
+                        "name": "Open Sicilian",
+                        "caption": "White opens the centre.",
+                        "idea": { "steps": [
+                          { "text": "Challenges the c5 pawn head-on.",
+                            "marks": [{ "type": "threat", "from": "d4", "to": "c5" }] }
+                        ] },
+                        "children": [
+                          {
+                            "move": "c5d4", "role": "main", "popularity": 3,
+                            "caption": "Trade the c-pawn for White's centre pawn.",
+                            "idea": { "steps": [
+                              { "text": "Black keeps two central pawns (d and e). White now has only one.",
+                                "marks": [
+                                  { "type": "badge", "square": "e4", "label": "alone" },
+                                  { "type": "control", "squares": ["e5", "c5"] }
+                                ] },
+                              { "text": "The c-file is half-open: a future highway for Black's rook.",
+                                "marks": [
+                                  { "type": "ray", "from": "c7", "to": "c2" },
+                                  { "type": "target", "squares": ["c2"] }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "f3d4", "role": "main", "popularity": 3,
+                                "caption": "Knight recaptures in the centre.",
+                                "idea": { "steps": [
+                                  { "text": "A strong central knight, but it can become a target.",
+                                    "marks": [{ "type": "target", "squares": ["d4"] }] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "g8f6", "role": "main", "popularity": 3,
+                                    "caption": "Develops with an attack on e4.",
+                                    "idea": { "steps": [
+                                      { "text": "e4 is attacked, so White has to spend a move defending it.",
+                                        "marks": [
+                                          { "type": "threat", "from": "f6", "to": "e4" },
+                                          { "type": "danger", "squares": ["e4"] }
+                                        ] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "b1c3", "role": "main", "popularity": 3,
+                                        "caption": "Defends e4 with a developing move.",
+                                        "idea": { "steps": [
+                                          { "text": "Protects e4 and brings another piece out.",
+                                            "marks": [{ "type": "defend", "from": "c3", "to": "e4" }] }
+                                        ] },
+                                        "children": [
+                                          {
+                                            "move": "g7g6", "role": "main", "popularity": 3,
+                                            "name": "Dragon Variation",
+                                            "caption": "Makes room for the 'dragon' bishop on g7.",
+                                            "idea": { "steps": [
+                                              { "text": "The bishop is going to g7, on the long diagonal.",
+                                                "marks": [
+                                                  { "type": "plan", "from": "f8", "to": "g7" },
+                                                  { "type": "ghost", "square": "g7", "piece": "bB" }
+                                                ] },
+                                              { "text": "The pawn shape on g6, f7, h7 is said to look like a dragon. That's the name.",
+                                                "marks": [{ "type": "badge", "square": "g6", "label": "dragon" }] }
+                                            ] },
+                                            "children": [
+                                              {
+                                                "move": "c1e3", "role": "main", "popularity": 3,
+                                                "caption": "Develops and guards d4.",
+                                                "idea": { "steps": [
+                                                  { "text": "Backs up the d4 knight, which Black will try to hit.",
+                                                    "marks": [{ "type": "defend", "from": "e3", "to": "d4" }] }
+                                                ] },
+                                                "children": [
+                                                  {
+                                                    "move": "f8g7", "role": "main", "popularity": 3,
+                                                    "caption": "The dragon bishop is in place.",
+                                                    "idea": { "steps": [
+                                                      { "text": "Once the f6 knight moves, it rakes the diagonal all the way to d4 and b2.",
+                                                        "marks": [
+                                                          { "type": "badge", "square": "g7", "label": "dragon" },
+                                                          { "type": "target", "squares": ["d4", "b2"] }
+                                                        ] },
+                                                      { "text": "It also guards Black's king after castling.",
+                                                        "marks": [{ "type": "plan", "from": "e8", "to": "g8" }] }
+                                                    ] },
+                                                    "children": [
+                                                      {
+                                                        "move": "f2f3", "role": "main", "popularity": 3,
+                                                        "name": "Yugoslav Attack",
+                                                        "caption": "Stops ...Ng4 and prepares a pawn storm.",
+                                                        "idea": { "steps": [
+                                                          { "text": "Without f3, ...Ng4 would hit the e3 bishop.",
+                                                            "marks": [
+                                                              { "type": "control", "squares": ["g4"] },
+                                                              { "type": "badge", "square": "g4", "label": "no entry" }
+                                                            ] },
+                                                          { "text": "Later, g4 and h4–h5 attack Black's king.",
+                                                            "marks": [
+                                                              { "type": "plan", "from": "g2", "to": "g4" },
+                                                              { "type": "plan", "from": "h2", "to": "h4" }
+                                                            ] }
+                                                        ] },
+                                                        "children": [
+                                                          {
+                                                            "move": "e8g8", "role": "main", "popularity": 3,
+                                                            "caption": "Castle: the dragon bishop guards the king.",
+                                                            "idea": { "steps": [
+                                                              { "text": "King tucked behind g7, which covers the dark squares around it.",
+                                                                "marks": [
+                                                                  { "type": "badge", "square": "g8", "label": "safe" },
+                                                                  { "type": "defend", "from": "g7", "to": "h6" }
+                                                                ] }
+                                                            ] },
+                                                            "children": [
+                                                              {
+                                                                "move": "d1d2", "role": "main", "popularity": 3,
+                                                                "caption": "Prepares Bh6 to trade off the dragon bishop.",
+                                                                "idea": { "steps": [
+                                                                  { "text": "Queen and bishop line up for Bh6, swapping Black's best defender.",
+                                                                    "marks": [
+                                                                      { "type": "plan", "from": "e3", "to": "h6" },
+                                                                      { "type": "ghost", "square": "h6", "piece": "wB" }
+                                                                    ] },
+                                                                  { "text": "White will castle queenside and storm Black's king.",
+                                                                    "marks": [{ "type": "plan", "from": "e1", "to": "c1" }] }
+                                                                ] },
+                                                                "children": [
+                                                                  {
+                                                                    "move": "b8c6", "role": "main", "popularity": 3,
+                                                                    "caption": "Develops and hits d4.",
+                                                                    "idea": { "steps": [
+                                                                      { "text": "More pressure on White's central knight.",
+                                                                        "marks": [{ "type": "threat", "from": "c6", "to": "d4" }] },
+                                                                      { "text": "Kings on opposite sides: whoever attacks faster usually wins.",
+                                                                        "marks": [
+                                                                          { "type": "plan", "from": "b7", "to": "b5" },
+                                                                          { "type": "badge", "square": "b5", "label": "race" }
+                                                                        ] }
+                                                                    ] }
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              },
+                                              {
+                                                "move": "f1e2", "role": "alt", "popularity": 2,
+                                                "name": "Classical setup",
+                                                "caption": "A calmer setup: castle kingside first.",
+                                                "children": [
+                                                  {
+                                                    "move": "f8g7", "role": "main", "popularity": 3,
+                                                    "caption": "Same plan: dragon bishop to g7.",
+                                                    "children": [
+                                                      {
+                                                        "move": "e1g1", "role": "main", "popularity": 3,
+                                                        "caption": "White castles kingside.",
+                                                        "children": [
+                                                          {
+                                                            "move": "e8g8", "role": "main", "popularity": 3,
+                                                            "caption": "Black castles too. A calmer game than the Yugoslav.",
+                                                            "idea": { "steps": [
+                                                              { "text": "Same side castling means slower, more positional play.",
+                                                                "marks": [
+                                                                  { "type": "badge", "square": "g8", "label": "safe" },
+                                                                  { "type": "badge", "square": "g1", "label": "safe" }
+                                                                ] }
+                                                            ] }
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "move": "e4e5", "role": "mistake", "popularity": 1,
+                                        "name": "Early e5 push",
+                                        "caption": "Kicks the knight. Looks aggressive…",
+                                        "refutation": [
+                                          { "move": "d6e5", "text": "Black takes, and the pawn now hits the d4 knight too.",
+                                            "marks": [{ "type": "threat", "from": "e5", "to": "d4" }] },
+                                          { "move": "d4f3", "text": "The knight retreats, but that opens the d-file…",
+                                            "marks": [
+                                              { "type": "ray", "from": "d8", "to": "d1" },
+                                              { "type": "danger", "squares": ["d1"] }
+                                            ] },
+                                          { "move": "d8d1", "text": "Queens come off with check." },
+                                          { "move": "e1d1", "text": "The king recaptures: no castling, and White is a pawn down.",
+                                            "marks": [{ "type": "badge", "square": "d1", "label": "no castling" }] }
+                                        ],
+                                        "lesson": "Pushing a pawn to kick a piece can leave it undefended. Here e5 was simply lost."
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "move": "f1b5", "role": "alt", "popularity": 2,
+                        "name": "Moscow Variation",
+                        "caption": "Check! The bishop comes out with tempo.",
+                        "children": [
+                          {
+                            "move": "c8d7", "role": "main", "popularity": 3,
+                            "caption": "Block, and offer a trade.",
+                            "idea": { "steps": [
+                              { "text": "Trading light-squared bishops is fine for Black.",
+                                "marks": [{ "type": "threat", "from": "d7", "to": "b5" }] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "b5d7", "role": "main", "popularity": 3,
+                                "caption": "White trades.",
+                                "children": [
+                                  {
+                                    "move": "d8d7", "role": "main", "popularity": 3,
+                                    "caption": "Queen recaptures, developing.",
+                                    "children": [
+                                      {
+                                        "move": "e1g1", "role": "main", "popularity": 3,
+                                        "caption": "White castles.",
+                                        "children": [
+                                          {
+                                            "move": "b8c6", "role": "main", "popularity": 3,
+                                            "caption": "Develop and keep an eye on d4.",
+                                            "idea": { "steps": [
+                                              { "text": "Knight and c5 pawn both watch d4.",
+                                                "marks": [{ "type": "control", "squares": ["d4"] }] }
+                                            ] }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "move": "c2c3", "role": "alt", "popularity": 2,
+                "name": "Alapin Variation",
+                "caption": "Prepares d4, so White can recapture with a pawn.",
+                "idea": { "steps": [
+                  { "text": "After d4 and ...cxd4, cxd4 keeps two centre pawns.",
+                    "marks": [
+                      { "type": "plan", "from": "d2", "to": "d4" },
+                      { "type": "ghost", "square": "d4", "piece": "wP" }
+                    ] }
+                ] },
+                "children": [
+                  {
+                    "move": "g8f6", "role": "main", "popularity": 3,
+                    "caption": "Hits e4 straight away.",
+                    "idea": { "steps": [
+                      { "text": "c3 took the knight's best square, so e4 has one fewer defender.",
+                        "marks": [{ "type": "threat", "from": "f6", "to": "e4" }] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "e4e5", "role": "main", "popularity": 3,
+                        "caption": "Kicks the knight.",
+                        "children": [
+                          {
+                            "move": "f6d5", "role": "main", "popularity": 3,
+                            "caption": "Knight to a great central square.",
+                            "idea": { "steps": [
+                              { "text": "White's c-pawn is on c3, so it can't easily kick the knight from c4.",
+                                "marks": [
+                                  { "type": "badge", "square": "d5", "label": "centre" },
+                                  { "type": "control", "squares": ["c3", "e3"] }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "d2d4", "role": "main", "popularity": 3,
+                                "caption": "Builds the centre.",
+                                "children": [
+                                  {
+                                    "move": "c5d4", "role": "main", "popularity": 3,
+                                    "caption": "Trade, aiming at White's centre.",
+                                    "children": [
+                                      {
+                                        "move": "c3d4", "role": "main", "popularity": 3,
+                                        "caption": "Pawn recaptures.",
+                                        "children": [
+                                          {
+                                            "move": "d7d6", "role": "main", "popularity": 3,
+                                            "caption": "Challenges the e5 pawn.",
+                                            "idea": { "steps": [
+                                              { "text": "Chip away at the front of White's pawn centre.",
+                                                "marks": [
+                                                  { "type": "threat", "from": "d6", "to": "e5" },
+                                                  { "type": "danger", "squares": ["e5"] }
+                                                ] }
+                                            ] }
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "move": "f6e4", "role": "mistake", "popularity": 1,
+                            "name": "Wandering knight",
+                            "caption": "Knight jumps forward. Active-looking…",
+                            "refutation": [
+                              { "move": "d2d3", "text": "Kicked again, and every escape square is covered.",
+                                "marks": [
+                                  { "type": "threat", "from": "d3", "to": "e4" },
+                                  { "type": "danger", "squares": ["c3", "d2", "d6", "f2", "f6", "g3", "g5"] }
+                                ] },
+                              { "move": "e4g5", "text": "It tries g5…" },
+                              { "move": "c1g5", "text": "…and the bishop takes it. A whole piece lost.",
+                                "marks": [{ "type": "badge", "square": "g5", "label": "piece lost" }] }
+                            ],
+                            "lesson": "A knight deep in enemy territory can run out of squares. Check its escape routes before jumping in."
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "move": "b1c3", "role": "alt", "popularity": 2,
+                "name": "Closed Sicilian",
+                "caption": "Keeps the centre closed and builds slowly.",
+                "children": [
+                  {
+                    "move": "b8c6", "role": "main", "popularity": 3,
+                    "caption": "Develops, watching d4.",
+                    "idea": { "steps": [
+                      { "text": "Knight and c5 pawn both cover d4.",
+                        "marks": [{ "type": "control", "squares": ["d4"] }] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "g2g3", "role": "main", "popularity": 3,
+                        "caption": "White prepares a fianchetto.",
+                        "children": [
+                          {
+                            "move": "g7g6", "role": "main", "popularity": 3,
+                            "caption": "Mirror it: Black fianchettoes too.",
+                            "children": [
+                              {
+                                "move": "f1g2", "role": "main", "popularity": 3,
+                                "caption": "White's bishop eyes the long diagonal.",
+                                "children": [
+                                  {
+                                    "move": "f8g7", "role": "main", "popularity": 3,
+                                    "caption": "Black's bishop does the same, aiming at c3 and b2.",
+                                    "idea": { "steps": [
+                                      { "text": "Two fianchettoed bishops staring at each other's queenside.",
+                                        "marks": [
+                                          { "type": "ray", "from": "g7", "to": "c3" },
+                                          { "type": "target", "squares": ["c3"] }
+                                        ] }
+                                    ] }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

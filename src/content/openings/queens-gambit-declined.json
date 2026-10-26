@@ -1,0 +1,554 @@
+{
+  "id": "queens-gambit-declined",
+  "name": "Queen's Gambit Declined",
+  "side": "black",
+  "kind": "opening",
+  "group": "black-vs-d4",
+  "difficulty": 2,
+  "tagline": "Hold d5 like a rock",
+  "intro": "Answer 1.d4 with ...d5 and hold it with ...e6. Develop calmly, castle, then free your position with trades and the ...e5 break.",
+  "keyPositionFen": "r1b2rk1/pp1nqppp/2p5/4p3/2BP4/2R1PN2/PP3PPP/3Q1RK1 w - - 0 13",
+  "plans": [
+    {
+      "name": "Trade in the centre",
+      "text": "...exd4 opens lines for Black's pieces and leaves White with an isolated-looking centre.",
+      "marks": [
+        { "type": "plan", "from": "e5", "to": "d4" },
+        { "type": "threat", "from": "e5", "to": "d4" }
+      ]
+    },
+    {
+      "name": "Knight to f6",
+      "text": "The d7 knight moves out of the way, guarding the king and unblocking the c8 bishop.",
+      "marks": [
+        { "type": "plan", "from": "d7", "to": "f6" },
+        { "type": "ghost", "square": "f6", "piece": "bN" },
+        { "type": "badge", "square": "c8", "label": "freed" }
+      ]
+    },
+    {
+      "name": "Bishop to g4",
+      "text": "Once d7 is clear, the 'problem bishop' finally joins the game.",
+      "marks": [
+        { "type": "plan", "from": "c8", "to": "g4" },
+        { "type": "ghost", "square": "g4", "piece": "bB" }
+      ]
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "move": "d2d4", "role": "main", "popularity": 3,
+        "caption": "White takes the centre.",
+        "idea": { "steps": [
+          { "text": "Controls e5 and c5, and opens the c1 bishop.",
+            "marks": [
+              { "type": "control", "squares": ["c5", "e5"] },
+              { "type": "ray", "from": "c1", "to": "h6" }
+            ] }
+        ] },
+        "children": [
+          {
+            "move": "d7d5", "role": "main", "popularity": 3,
+            "caption": "Black claims an equal share of the centre.",
+            "idea": { "steps": [
+              { "text": "Stops White from playing e4 next.",
+                "marks": [{ "type": "control", "squares": ["c4", "e4"] }] }
+            ] },
+            "children": [
+              {
+                "move": "c2c4", "role": "main", "popularity": 3,
+                "name": "Queen's Gambit",
+                "caption": "White offers a pawn to pull d5 away.",
+                "idea": { "steps": [
+                  { "text": "Attacks the d5 pawn from the side.",
+                    "marks": [
+                      { "type": "threat", "from": "c4", "to": "d5" },
+                      { "type": "danger", "squares": ["d5"] }
+                    ] },
+                  { "text": "If ...dxc4, White hopes to grab the centre with e4.",
+                    "marks": [
+                      { "type": "plan", "from": "e2", "to": "e4" },
+                      { "type": "ghost", "square": "e4", "piece": "wP" }
+                    ] }
+                ] },
+                "children": [
+                  {
+                    "move": "e7e6", "role": "main", "popularity": 3,
+                    "name": "Queen's Gambit Declined",
+                    "caption": "Holds d5 with another pawn.",
+                    "idea": { "steps": [
+                      { "text": "Now d5 is defended by a pawn.",
+                        "marks": [{ "type": "defend", "from": "e6", "to": "d5" }] },
+                      { "text": "The f8 bishop is free. The c8 bishop is shut in for now; Black frees it later.",
+                        "marks": [
+                          { "type": "ray", "from": "f8", "to": "a3" },
+                          { "type": "badge", "square": "c8", "label": "stuck for now" }
+                        ] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "b1c3", "role": "main", "popularity": 3,
+                        "caption": "Adds pressure on d5.",
+                        "idea": { "steps": [
+                          { "text": "Two white pieces now hit d5.",
+                            "marks": [
+                              { "type": "threat", "from": "c3", "to": "d5" },
+                              { "type": "threat", "from": "c4", "to": "d5" }
+                            ] }
+                        ] },
+                        "children": [
+                          {
+                            "move": "g8f6", "role": "main", "popularity": 3,
+                            "caption": "Defends d5 again and develops.",
+                            "idea": { "steps": [
+                              { "text": "Two attackers, two defenders: d5 holds.",
+                                "marks": [
+                                  { "type": "defend", "from": "f6", "to": "d5" },
+                                  { "type": "defend", "from": "e6", "to": "d5" }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "c1g5", "role": "main", "popularity": 3,
+                                "caption": "Pins the knight to the queen.",
+                                "idea": { "steps": [
+                                  { "text": "If the knight moves, the queen on d8 is exposed.",
+                                    "marks": [
+                                      { "type": "ray", "from": "g5", "to": "d8" },
+                                      { "type": "badge", "square": "f6", "label": "pinned" }
+                                    ] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "f8e7", "role": "main", "popularity": 3,
+                                    "caption": "Breaks the pin and prepares to castle.",
+                                    "idea": { "steps": [
+                                      { "text": "The bishop steps between, so the knight is no longer pinned to the queen.",
+                                        "marks": [{ "type": "defend", "from": "e7", "to": "f6" }] },
+                                      { "text": "Black can castle next move.",
+                                        "marks": [{ "type": "plan", "from": "e8", "to": "g8" }] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "e2e3", "role": "main", "popularity": 3,
+                                        "caption": "Solid support for d4.",
+                                        "idea": { "steps": [
+                                          { "text": "Backs up d4 and opens the f1 bishop.",
+                                            "marks": [
+                                              { "type": "defend", "from": "e3", "to": "d4" },
+                                              { "type": "ray", "from": "f1", "to": "d3" }
+                                            ] }
+                                        ] },
+                                        "children": [
+                                          {
+                                            "move": "e8g8", "role": "main", "popularity": 3,
+                                            "caption": "King to safety.",
+                                            "idea": { "steps": [
+                                              { "text": "Castled early, before anything can go wrong in the centre.",
+                                                "marks": [{ "type": "badge", "square": "g8", "label": "safe" }] }
+                                            ] },
+                                            "children": [
+                                              {
+                                                "move": "g1f3", "role": "main", "popularity": 3,
+                                                "caption": "Develops toward the centre.",
+                                                "children": [
+                                                  {
+                                                    "move": "b8d7", "role": "main", "popularity": 3,
+                                                    "caption": "Develops, ready to support ...c5 or ...e5.",
+                                                    "idea": { "steps": [
+                                                      { "text": "From d7 the knight supports the freeing pawn breaks.",
+                                                        "marks": [
+                                                          { "type": "control", "squares": ["c5", "e5"] },
+                                                          { "type": "plan", "from": "e6", "to": "e5" }
+                                                        ] }
+                                                    ] },
+                                                    "children": [
+                                                      {
+                                                        "move": "a1c1", "role": "main", "popularity": 3,
+                                                        "caption": "Rook to the c-file, which may open later.",
+                                                        "idea": { "steps": [
+                                                          { "text": "If pawns are traded on c4 or d5, the rook eyes c7.",
+                                                            "marks": [
+                                                              { "type": "target", "squares": ["c7"] },
+                                                              { "type": "badge", "square": "c1", "label": "c-file" }
+                                                            ] }
+                                                        ] },
+                                                        "children": [
+                                                          {
+                                                            "move": "c7c6", "role": "main", "popularity": 3,
+                                                            "caption": "Strengthens d5 and blunts the rook.",
+                                                            "idea": { "steps": [
+                                                              { "text": "A third defender for d5, and the c-file stays closed.",
+                                                                "marks": [
+                                                                  { "type": "defend", "from": "c6", "to": "d5" },
+                                                                  { "type": "badge", "square": "c6", "label": "wall" }
+                                                                ] }
+                                                            ] },
+                                                            "children": [
+                                                              {
+                                                                "move": "f1d3", "role": "main", "popularity": 3,
+                                                                "caption": "Develops, aiming at h7.",
+                                                                "idea": { "steps": [
+                                                                  { "text": "White's last minor piece points at Black's king.",
+                                                                    "marks": [
+                                                                      { "type": "ray", "from": "d3", "to": "h7" },
+                                                                      { "type": "target", "squares": ["h7"] }
+                                                                    ] }
+                                                                ] },
+                                                                "children": [
+                                                                  {
+                                                                    "move": "d5c4", "role": "main", "popularity": 3,
+                                                                    "caption": "Trade now: the bishop just moved and must move again.",
+                                                                    "idea": { "steps": [
+                                                                      { "text": "Black gives up the centre on purpose, gaining time.",
+                                                                        "marks": [
+                                                                          { "type": "threat", "from": "d3", "to": "c4" },
+                                                                          { "type": "badge", "square": "d3", "label": "moves again" }
+                                                                        ] }
+                                                                    ] },
+                                                                    "children": [
+                                                                      {
+                                                                        "move": "d3c4", "role": "main", "popularity": 3,
+                                                                        "caption": "Bishop recaptures.",
+                                                                        "children": [
+                                                                          {
+                                                                            "move": "f6d5", "role": "main", "popularity": 3,
+                                                                            "name": "Capablanca's freeing manoeuvre",
+                                                                            "caption": "Offers trades to free Black's cramped position.",
+                                                                            "idea": { "steps": [
+                                                                              { "text": "Hits c3 and offers to swap the dark-squared bishops.",
+                                                                                "marks": [
+                                                                                  { "type": "threat", "from": "d5", "to": "c3" },
+                                                                                  { "type": "ray", "from": "e7", "to": "g5" }
+                                                                                ] },
+                                                                              { "text": "Fewer pieces means more room for the ones Black keeps.",
+                                                                                "marks": [{ "type": "badge", "square": "d5", "label": "trade" }] }
+                                                                            ] },
+                                                                            "children": [
+                                                                              {
+                                                                                "move": "g5e7", "role": "main", "popularity": 3,
+                                                                                "caption": "White takes the trade.",
+                                                                                "children": [
+                                                                                  {
+                                                                                    "move": "d8e7", "role": "main", "popularity": 3,
+                                                                                    "caption": "Queen recaptures, now active.",
+                                                                                    "children": [
+                                                                                      {
+                                                                                        "move": "e1g1", "role": "main", "popularity": 3,
+                                                                                        "caption": "White castles.",
+                                                                                        "children": [
+                                                                                          {
+                                                                                            "move": "d5c3", "role": "main", "popularity": 3,
+                                                                                            "caption": "Another trade.",
+                                                                                            "children": [
+                                                                                              {
+                                                                                                "move": "c1c3", "role": "main", "popularity": 3,
+                                                                                                "caption": "Rook recaptures.",
+                                                                                                "children": [
+                                                                                                  {
+                                                                                                    "move": "e6e5", "role": "main", "popularity": 3,
+                                                                                                    "caption": "The freeing break!",
+                                                                                                    "idea": { "steps": [
+                                                                                                      { "text": "Challenges d4 and claims space in the centre.",
+                                                                                                        "marks": [
+                                                                                                          { "type": "threat", "from": "e5", "to": "d4" },
+                                                                                                          { "type": "danger", "squares": ["d4"] }
+                                                                                                        ] },
+                                                                                                      { "text": "The e6 pawn is gone, so once the knight moves the c8 bishop is free.",
+                                                                                                        "marks": [
+                                                                                                          { "type": "plan", "from": "d7", "to": "f6" },
+                                                                                                          { "type": "badge", "square": "c8", "label": "free soon" }
+                                                                                                        ] }
+                                                                                                    ] }
+                                                                                                  }
+                                                                                                ]
+                                                                                              }
+                                                                                            ]
+                                                                                          }
+                                                                                        ]
+                                                                                      }
+                                                                                    ]
+                                                                                  }
+                                                                                ]
+                                                                              }
+                                                                            ]
+                                                                          }
+                                                                        ]
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "move": "b8d7", "role": "alt", "popularity": 2,
+                                    "name": "Elephant Trap setup",
+                                    "caption": "Develops, and quietly sets a famous trap.",
+                                    "idea": { "steps": [
+                                      { "text": "It looks like d5 gets weaker. It doesn't.",
+                                        "marks": [{ "type": "badge", "square": "d5", "label": "bait" }] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "e2e3", "role": "main", "popularity": 3,
+                                        "caption": "White plays solidly.",
+                                        "children": [
+                                          {
+                                            "move": "f8e7", "role": "main", "popularity": 3,
+                                            "caption": "Unpins and prepares to castle.",
+                                            "children": [
+                                              {
+                                                "move": "g1f3", "role": "main", "popularity": 3,
+                                                "caption": "Develops.",
+                                                "children": [
+                                                  {
+                                                    "move": "e8g8", "role": "main", "popularity": 3,
+                                                    "caption": "Castles: the same position as the main line."
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "move": "c4d5", "role": "rare", "popularity": 2,
+                                        "name": "Exchange on d5",
+                                        "caption": "White trades pawns on d5.",
+                                        "children": [
+                                          {
+                                            "move": "e6d5", "role": "main", "popularity": 3,
+                                            "caption": "Recapture with the pawn.",
+                                            "children": [
+                                              {
+                                                "move": "e2e3", "role": "main", "popularity": 3,
+                                                "caption": "Correct: White just develops."
+                                              },
+                                              {
+                                                "move": "c3d5", "role": "mistake", "popularity": 2,
+                                                "name": "Elephant Trap",
+                                                "caption": "Grabs a pawn: the f6 knight looks pinned…",
+                                                "refutation": [
+                                                  { "move": "f6d5", "text": "Black takes anyway! White can take the queen…",
+                                                    "marks": [{ "type": "threat", "from": "g5", "to": "d8" }] },
+                                                  { "move": "g5d8", "text": "…and does." },
+                                                  { "move": "f8b4", "text": "But Bb4 is check, and only the queen can block.",
+                                                    "marks": [
+                                                      { "type": "threat", "from": "b4", "to": "e1" },
+                                                      { "type": "danger", "squares": ["e1"] }
+                                                    ] },
+                                                  { "move": "d1d2", "text": "The queen blocks." },
+                                                  { "move": "b4d2", "text": "Black takes the queen back, with check." },
+                                                  { "move": "e1d2", "text": "White recaptures." },
+                                                  { "move": "e8d8", "text": "Black takes the bishop. Black is a whole piece up.",
+                                                    "marks": [{ "type": "badge", "square": "d8", "label": "piece up" }] }
+                                                ],
+                                                "lesson": "A 'pinned' piece can still move if it creates a bigger threat. Look for checks before grabbing a pawn."
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "move": "c4d5", "role": "alt", "popularity": 2,
+                                "name": "Exchange Variation",
+                                "caption": "White releases the tension.",
+                                "children": [
+                                  {
+                                    "move": "e6d5", "role": "main", "popularity": 3,
+                                    "caption": "Recapture with the e-pawn: the c8 bishop is free!",
+                                    "idea": { "steps": [
+                                      { "text": "With e6 gone, the bishop's diagonal is wide open.",
+                                        "marks": [
+                                          { "type": "ray", "from": "c8", "to": "h3" },
+                                          { "type": "badge", "square": "c8", "label": "free" }
+                                        ] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "c1g5", "role": "main", "popularity": 3,
+                                        "caption": "Pins the knight.",
+                                        "idea": { "steps": [
+                                          { "text": "Same pin as the main line.",
+                                            "marks": [
+                                              { "type": "ray", "from": "g5", "to": "d8" },
+                                              { "type": "badge", "square": "f6", "label": "pinned" }
+                                            ] }
+                                        ] },
+                                        "children": [
+                                          {
+                                            "move": "c7c6", "role": "main", "popularity": 3,
+                                            "caption": "Supports d5 for good.",
+                                            "idea": { "steps": [
+                                              { "text": "d5 is now rock solid.",
+                                                "marks": [{ "type": "defend", "from": "c6", "to": "d5" }] }
+                                            ] },
+                                            "children": [
+                                              {
+                                                "move": "e2e3", "role": "main", "popularity": 3,
+                                                "caption": "Solid development.",
+                                                "children": [
+                                                  {
+                                                    "move": "f8e7", "role": "main", "popularity": 3,
+                                                    "caption": "Unpins and prepares to castle.",
+                                                    "idea": { "steps": [
+                                                      { "text": "Breaks the pin, then ...O-O.",
+                                                        "marks": [
+                                                          { "type": "defend", "from": "e7", "to": "f6" },
+                                                          { "type": "plan", "from": "e8", "to": "g8" }
+                                                        ] }
+                                                    ] }
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "move": "g1f3", "role": "alt", "popularity": 2,
+                        "name": "Nf3 move order",
+                        "caption": "Develops the knight first.",
+                        "children": [
+                          {
+                            "move": "g8f6", "role": "main", "popularity": 3,
+                            "caption": "Develop and defend d5.",
+                            "children": [
+                              {
+                                "move": "b1c3", "role": "main", "popularity": 3,
+                                "caption": "Back to familiar territory.",
+                                "children": [
+                                  {
+                                    "move": "f8e7", "role": "main", "popularity": 3,
+                                    "caption": "Same development as the main line.",
+                                    "children": [
+                                      {
+                                        "move": "c1g5", "role": "main", "popularity": 3,
+                                        "caption": "The pin again.",
+                                        "children": [
+                                          {
+                                            "move": "e8g8", "role": "main", "popularity": 3,
+                                            "caption": "Castle: the knight is already defended by the bishop.",
+                                            "children": [
+                                              {
+                                                "move": "e2e3", "role": "main", "popularity": 3,
+                                                "caption": "Same position as the main line."
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "move": "d5c4", "role": "alt", "popularity": 2,
+                    "name": "Queen's Gambit Accepted",
+                    "caption": "Take the pawn… but don't try to keep it.",
+                    "idea": { "steps": [
+                      { "text": "Fine, as long as Black gives the pawn back and develops.",
+                        "marks": [{ "type": "badge", "square": "c4", "label": "give back" }] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "e2e3", "role": "main", "popularity": 3,
+                        "caption": "Opens the bishop to win the pawn back.",
+                        "idea": { "steps": [
+                          { "text": "The f1 bishop now hits c4.",
+                            "marks": [
+                              { "type": "ray", "from": "f1", "to": "c4" },
+                              { "type": "target", "squares": ["c4"] }
+                            ] }
+                        ] },
+                        "children": [
+                          {
+                            "move": "g8f6", "role": "main", "popularity": 3,
+                            "caption": "Develop instead of clinging to the pawn.",
+                            "idea": { "steps": [
+                              { "text": "Controls e4 so White can't build a big centre for free.",
+                                "marks": [{ "type": "control", "squares": ["e4"] }] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "f1c4", "role": "main", "popularity": 3,
+                                "caption": "Pawn regained.",
+                                "children": [
+                                  {
+                                    "move": "e7e6", "role": "main", "popularity": 3,
+                                    "caption": "Calm development, with ...c5 to come.",
+                                    "idea": { "steps": [
+                                      { "text": "Opens the f8 bishop and prepares ...c5 to hit d4.",
+                                        "marks": [
+                                          { "type": "ray", "from": "f8", "to": "a3" },
+                                          { "type": "plan", "from": "c7", "to": "c5" }
+                                        ] }
+                                    ] }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "move": "b7b5", "role": "mistake", "popularity": 1,
+                            "name": "Holding the pawn",
+                            "caption": "Protect the extra pawn with ...b5. Looks logical…",
+                            "refutation": [
+                              { "move": "a2a4", "text": "a4 attacks the b5 pawn.",
+                                "marks": [{ "type": "threat", "from": "a4", "to": "b5" }] },
+                              { "move": "c7c6", "text": "Black defends it again…" },
+                              { "move": "a4b5", "text": "White takes anyway…" },
+                              { "move": "c6b5", "text": "…and Black recaptures." },
+                              { "move": "d1f3", "text": "The long diagonal is empty: the queen hits the rook on a8.",
+                                "marks": [
+                                  { "type": "threat", "from": "f3", "to": "a8" },
+                                  { "type": "danger", "squares": ["a8"] }
+                                ] }
+                            ],
+                            "lesson": "Clinging to a gambit pawn opens lines for your opponent. Give it back and develop."
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

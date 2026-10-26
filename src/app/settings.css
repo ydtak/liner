@@ -1,0 +1,68 @@
+.settings { max-width: 640px; margin: 0 auto; padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+.settings .topbar { padding-top: max(8px, env(safe-area-inset-top)); }
+
+.settings-body { display: flex; flex-direction: column; gap: 24px; padding: 8px 16px; }
+
+.settings-preview { width: min(240px, 60vw); margin: 0 auto; pointer-events: none; }
+
+.settings-group { display: flex; flex-direction: column; gap: 16px; }
+.settings-group h2 {
+  font-size: 14px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--fg-muted);
+}
+
+.setting { display: flex; flex-direction: column; gap: 8px; }
+.setting-row { flex-direction: row; align-items: center; justify-content: space-between; gap: 16px; }
+.setting-label { font-weight: 650; }
+.setting-hint, .settings-note { font-size: 14px; color: var(--fg-muted); }
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+.segmented button {
+  flex: 1 1 auto;
+  min-height: 44px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-weight: 600;
+  color: var(--fg-muted);
+}
+.segmented button.on { background: var(--surface); color: var(--fg); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12); }
+
+.switch {
+  position: relative;
+  flex: none;
+  width: 52px;
+  height: 32px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 150ms;
+}
+.switch span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 150ms;
+}
+.switch.on { background: var(--accent); }
+.switch.on span { transform: translateX(20px); }
+/* Keep a 44px touch target around the 32px switch. */
+.switch::after { content: ''; position: absolute; inset: -6px -2px; }
+
+.btn-danger { align-self: flex-start; color: var(--danger-text); border-color: color-mix(in srgb, var(--c-mistake) 40%, var(--border)); }

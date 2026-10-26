@@ -1,0 +1,493 @@
+{
+  "id": "italian-game",
+  "name": "Italian Game",
+  "side": "white",
+  "kind": "opening",
+  "group": "white",
+  "difficulty": 1,
+  "tagline": "Fast development, aim at f7",
+  "intro": "Develop quickly, castle, and build a centre with c3 and d4. The bishop on c4 aims at Black's weakest square, f7.",
+  "keyPositionFen": "r1bq1rk1/bpp2ppp/p1np1n2/4p3/4P3/1BPP1N2/PP1N1PPP/R1BQR1K1 b - - 3 9",
+  "plans": [
+    {
+      "name": "Knight to g3",
+      "text": "The knight travels d2, f1, g3 to join the kingside and eye f5.",
+      "marks": [
+        { "type": "plan", "from": "d2", "to": "f1" },
+        { "type": "plan", "from": "f1", "to": "g3" },
+        { "type": "ghost", "square": "g3", "piece": "wN" },
+        { "type": "control", "squares": ["f5", "h5"] }
+      ]
+    },
+    {
+      "name": "Pin with Bg5",
+      "text": "Once the knight leaves d2, the bishop can pin the f6 knight to the queen.",
+      "marks": [
+        { "type": "plan", "from": "c1", "to": "g5" },
+        { "type": "ray", "from": "g5", "to": "d8" },
+        { "type": "badge", "square": "f6", "label": "pinned" }
+      ]
+    },
+    {
+      "name": "Break with d4",
+      "text": "With e4 well protected, d4 opens the centre on White's terms.",
+      "marks": [
+        { "type": "plan", "from": "d3", "to": "d4" },
+        { "type": "ghost", "square": "d4", "piece": "wP" },
+        { "type": "threat", "from": "d4", "to": "e5" }
+      ]
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "move": "e2e4", "role": "main", "popularity": 3,
+        "caption": "Pawn takes a central square.",
+        "idea": { "steps": [
+          { "text": "Controls the centre squares d5 and f5.",
+            "marks": [{ "type": "control", "squares": ["d5", "f5"] }] },
+          { "text": "Opens lines for the bishop and queen.",
+            "marks": [
+              { "type": "ray", "from": "f1", "to": "a6" },
+              { "type": "ray", "from": "d1", "to": "h5" }
+            ] }
+        ] },
+        "children": [
+          {
+            "move": "e7e5", "role": "main", "popularity": 3,
+            "caption": "Black claims an equal share of the centre.",
+            "idea": { "steps": [
+              { "text": "Stops White from easily playing d4 or f4.",
+                "marks": [{ "type": "control", "squares": ["d4", "f4"] }] },
+              { "text": "Opens lines for Black's bishop and queen too.",
+                "marks": [
+                  { "type": "ray", "from": "f8", "to": "a3" },
+                  { "type": "ray", "from": "d8", "to": "h4" }
+                ] }
+            ] },
+            "children": [
+              {
+                "move": "g1f3", "role": "main", "popularity": 3,
+                "caption": "Knight comes out and attacks the e5 pawn.",
+                "idea": { "steps": [
+                  { "text": "Develops a piece towards the centre, with a threat.",
+                    "marks": [
+                      { "type": "threat", "from": "f3", "to": "e5" },
+                      { "type": "danger", "squares": ["e5"] }
+                    ] },
+                  { "text": "Also clears the way to castle kingside soon.",
+                    "marks": [{ "type": "plan", "from": "e1", "to": "g1" }] }
+                ] },
+                "children": [
+                  {
+                    "move": "b8c6", "role": "main", "popularity": 3,
+                    "caption": "Defends e5 while developing.",
+                    "idea": { "steps": [
+                      { "text": "Protects the pawn and brings out a piece at the same time.",
+                        "marks": [{ "type": "defend", "from": "c6", "to": "e5" }] },
+                      { "text": "The knight also keeps an eye on d4.",
+                        "marks": [{ "type": "control", "squares": ["d4"] }] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "f1c4", "role": "main", "popularity": 3,
+                        "name": "Italian Game",
+                        "caption": "Bishop eyes the weak f7 square.",
+                        "idea": { "steps": [
+                          { "text": "f7 is only defended by the king, so it's a natural target.",
+                            "marks": [
+                              { "type": "ray", "from": "c4", "to": "f7" },
+                              { "type": "target", "squares": ["f7"] },
+                              { "type": "badge", "square": "f7", "label": "weak" }
+                            ] },
+                          { "text": "Knight and bishop are out, so White can castle next.",
+                            "marks": [
+                              { "type": "plan", "from": "e1", "to": "g1" },
+                              { "type": "ghost", "square": "g1", "piece": "wK" },
+                              { "type": "ghost", "square": "f1", "piece": "wR" }
+                            ] }
+                        ] },
+                        "children": [
+                          {
+                            "move": "f8c5", "role": "main", "popularity": 3,
+                            "name": "Giuoco Piano",
+                            "caption": "Black copies the idea and aims at f2.",
+                            "idea": { "steps": [
+                              { "text": "Mirror image: f2 is White's weak square.",
+                                "marks": [
+                                  { "type": "ray", "from": "c5", "to": "f2" },
+                                  { "type": "target", "squares": ["f2"] }
+                                ] },
+                              { "text": "Black is now ready to castle too.",
+                                "marks": [{ "type": "plan", "from": "e8", "to": "g8" }] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "c2c3", "role": "main", "popularity": 3,
+                                "caption": "Small pawn move with a big plan.",
+                                "idea": { "steps": [
+                                  { "text": "Takes the d4 square away from Black's knight.",
+                                    "marks": [
+                                      { "type": "control", "squares": ["d4"] },
+                                      { "type": "badge", "square": "d4", "label": "no entry" }
+                                    ] },
+                                  { "text": "Prepares d4 to build a big centre.",
+                                    "marks": [
+                                      { "type": "plan", "from": "d2", "to": "d4" },
+                                      { "type": "ghost", "square": "d4", "piece": "wP" }
+                                    ] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "g8f6", "role": "main", "popularity": 3,
+                                    "caption": "Develops and attacks e4.",
+                                    "idea": { "steps": [
+                                      { "text": "Hits the e4 pawn, so White has to deal with it.",
+                                        "marks": [
+                                          { "type": "threat", "from": "f6", "to": "e4" },
+                                          { "type": "danger", "squares": ["e4"] }
+                                        ] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "d2d3", "role": "main", "popularity": 3,
+                                        "name": "Giuoco Pianissimo",
+                                        "caption": "Calmly defends e4.",
+                                        "idea": { "steps": [
+                                          { "text": "A solid pawn defence. d4 can still come later.",
+                                            "marks": [{ "type": "defend", "from": "d3", "to": "e4" }] },
+                                          { "text": "Opens the c1 bishop's diagonal.",
+                                            "marks": [{ "type": "ray", "from": "c1", "to": "h6" }] }
+                                        ] },
+                                        "children": [
+                                          {
+                                            "move": "d7d6", "role": "main", "popularity": 3,
+                                            "caption": "Black also protects e5 with a pawn.",
+                                            "idea": { "steps": [
+                                              { "text": "Same idea as White: solid support for the centre pawn.",
+                                                "marks": [{ "type": "defend", "from": "d6", "to": "e5" }] },
+                                              { "text": "Opens the c8 bishop's diagonal.",
+                                                "marks": [{ "type": "ray", "from": "c8", "to": "h3" }] }
+                                            ] },
+                                            "children": [
+                                              {
+                                                "move": "e1g1", "role": "main", "popularity": 3,
+                                                "caption": "Castles: king to safety.",
+                                                "idea": { "steps": [
+                                                  { "text": "Tucks the king behind pawns and brings the rook toward the centre.",
+                                                    "marks": [
+                                                      { "type": "badge", "square": "g1", "label": "safe" },
+                                                      { "type": "control", "squares": ["f2", "g2", "h2"] }
+                                                    ] }
+                                                ] },
+                                                "children": [
+                                                  {
+                                                    "move": "e8g8", "role": "main", "popularity": 3,
+                                                    "caption": "Black's king gets safe too.",
+                                                    "idea": { "steps": [
+                                                      { "text": "Both kings are safe. Now the fight is about plans.",
+                                                        "marks": [{ "type": "badge", "square": "g8", "label": "safe" }] }
+                                                    ] },
+                                                    "children": [
+                                                      {
+                                                        "move": "f1e1", "role": "main", "popularity": 3,
+                                                        "caption": "Rook backs up the e4 pawn.",
+                                                        "idea": { "steps": [
+                                                          { "text": "Adds a second defender to e4.",
+                                                            "marks": [
+                                                              { "type": "defend", "from": "e1", "to": "e4" },
+                                                              { "type": "defend", "from": "d3", "to": "e4" }
+                                                            ] },
+                                                          { "text": "With e4 secure, White can later push d4.",
+                                                            "marks": [
+                                                              { "type": "plan", "from": "d3", "to": "d4" },
+                                                              { "type": "ghost", "square": "d4", "piece": "wP" }
+                                                            ] }
+                                                        ] },
+                                                        "children": [
+                                                          {
+                                                            "move": "a7a6", "role": "main", "popularity": 3,
+                                                            "caption": "Makes a safe retreat square for the bishop.",
+                                                            "idea": { "steps": [
+                                                              { "text": "If White plays d4 or b4, the bishop can drop back to a7.",
+                                                                "marks": [
+                                                                  { "type": "plan", "from": "c5", "to": "a7" },
+                                                                  { "type": "ghost", "square": "a7", "piece": "bB" }
+                                                                ] },
+                                                              { "text": "It also stops a white piece from landing on b5.",
+                                                                "marks": [{ "type": "control", "squares": ["b5"] }] }
+                                                            ] },
+                                                            "children": [
+                                                              {
+                                                                "move": "c4b3", "role": "main", "popularity": 3,
+                                                                "caption": "Bishop steps back before it can be chased.",
+                                                                "idea": { "steps": [
+                                                                  { "text": "Black was ready to hit the bishop with ...b5. Moving first saves time.",
+                                                                    "marks": [
+                                                                      { "type": "plan", "from": "b7", "to": "b5" },
+                                                                      { "type": "ghost", "square": "b5", "piece": "bP" }
+                                                                    ] },
+                                                                  { "text": "From b3 it still aims at f7.",
+                                                                    "marks": [
+                                                                      { "type": "ray", "from": "b3", "to": "f7" },
+                                                                      { "type": "target", "squares": ["f7"] }
+                                                                    ] }
+                                                                ] },
+                                                                "children": [
+                                                                  {
+                                                                    "move": "c5a7", "role": "main", "popularity": 3,
+                                                                    "caption": "Bishop tucks away, still aiming at f2.",
+                                                                    "idea": { "steps": [
+                                                                      { "text": "Safe from pawn attacks, and the long diagonal still points at f2.",
+                                                                        "marks": [
+                                                                          { "type": "ray", "from": "a7", "to": "f2" },
+                                                                          { "type": "target", "squares": ["f2"] }
+                                                                        ] }
+                                                                    ] },
+                                                                    "children": [
+                                                                      {
+                                                                        "move": "b1d2", "role": "main", "popularity": 3,
+                                                                        "caption": "The last knight heads for the kingside.",
+                                                                        "idea": { "steps": [
+                                                                          { "text": "It will travel d2, f1, g3, where it helps attack Black's king.",
+                                                                            "marks": [
+                                                                              { "type": "plan", "from": "d2", "to": "f1" },
+                                                                              { "type": "plan", "from": "f1", "to": "g3" },
+                                                                              { "type": "ghost", "square": "g3", "piece": "wN" }
+                                                                            ] },
+                                                                          { "text": "On d2 it doesn't block the c-pawn, unlike Nc3 would.",
+                                                                            "marks": [{ "type": "badge", "square": "c3", "label": "pawn's spot" }] }
+                                                                        ] }
+                                                                      }
+                                                                    ]
+                                                                  }
+                                                                ]
+                                                              }
+                                                            ]
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "move": "d2d3", "role": "alt", "popularity": 2,
+                                "name": "Quiet d3 first",
+                                "caption": "Quieter: protect e4 before anything else.",
+                                "idea": { "steps": [
+                                  { "text": "Solid first. c3 can follow next move.",
+                                    "marks": [
+                                      { "type": "defend", "from": "d3", "to": "e4" },
+                                      { "type": "ghost", "square": "c3", "piece": "wP" }
+                                    ] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "g8f6", "role": "main", "popularity": 3,
+                                    "caption": "Develops and adds pressure to e4.",
+                                    "idea": { "steps": [
+                                      { "text": "e4 is already protected, so this is pure development.",
+                                        "marks": [{ "type": "threat", "from": "f6", "to": "e4" }] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "c2c3", "role": "main", "popularity": 3,
+                                        "caption": "Same position as the main line, reached another way.",
+                                        "idea": { "steps": [
+                                          { "text": "Move order differs, but the plan is identical: prepare d4.",
+                                            "marks": [
+                                              { "type": "plan", "from": "d3", "to": "d4" },
+                                              { "type": "badge", "square": "c3", "label": "same spot" }
+                                            ] }
+                                        ] }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "move": "g8f6", "role": "alt", "popularity": 2,
+                            "name": "Two Knights Defence",
+                            "caption": "Black attacks e4 instead of copying.",
+                            "idea": { "steps": [
+                              { "text": "Develops with a threat against the e4 pawn.",
+                                "marks": [
+                                  { "type": "threat", "from": "f6", "to": "e4" },
+                                  { "type": "danger", "squares": ["e4"] }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "d2d3", "role": "main", "popularity": 3,
+                                "caption": "Calmly protects e4.",
+                                "idea": { "steps": [
+                                  { "text": "Keeps it simple and opens the c1 bishop.",
+                                    "marks": [
+                                      { "type": "defend", "from": "d3", "to": "e4" },
+                                      { "type": "ray", "from": "c1", "to": "h6" }
+                                    ] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "f8c5", "role": "main", "popularity": 3,
+                                    "caption": "Bishop to its best diagonal, aiming at f2.",
+                                    "idea": { "steps": [
+                                      { "text": "Usually heads back into the main line.",
+                                        "marks": [
+                                          { "type": "ray", "from": "c5", "to": "f2" },
+                                          { "type": "target", "squares": ["f2"] }
+                                        ] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "c2c3", "role": "main", "popularity": 3,
+                                        "caption": "Back in the main line: the Giuoco Pianissimo.",
+                                        "idea": { "steps": [
+                                          { "text": "Same position as the main line. Plan: prepare d4.",
+                                            "marks": [
+                                              { "type": "plan", "from": "d3", "to": "d4" },
+                                              { "type": "control", "squares": ["d4"] }
+                                            ] }
+                                        ] }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "move": "f3g5", "role": "rare", "popularity": 1,
+                                "name": "Knight Attack",
+                                "caption": "Sharp attack on f7. Exciting, but lots of theory.",
+                                "idea": { "steps": [
+                                  { "text": "Knight and bishop both hit f7. Not covered in this course.",
+                                    "marks": [
+                                      { "type": "threat", "from": "g5", "to": "f7" },
+                                      { "type": "ray", "from": "c4", "to": "f7" },
+                                      { "type": "target", "squares": ["f7"] }
+                                    ] }
+                                ] }
+                              }
+                            ]
+                          },
+                          {
+                            "move": "c6d4", "role": "rare", "popularity": 1,
+                            "name": "Blackburne Shilling Gambit",
+                            "caption": "A tricky knight jump that leaves e5 hanging.",
+                            "idea": { "steps": [
+                              { "text": "Attacks the f3 knight and sets a trap.",
+                                "marks": [
+                                  { "type": "threat", "from": "d4", "to": "f3" },
+                                  { "type": "badge", "square": "e5", "label": "bait" }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "f3d4", "role": "main", "popularity": 3,
+                                "caption": "Trade off the annoying knight.",
+                                "idea": { "steps": [
+                                  { "text": "Removes Black's most active piece and avoids any tricks.",
+                                    "marks": [{ "type": "target", "squares": ["d4"] }] }
+                                ] },
+                                "children": [
+                                  {
+                                    "move": "e5d4", "role": "main", "popularity": 3,
+                                    "caption": "Black recaptures with the pawn.",
+                                    "children": [
+                                      {
+                                        "move": "c2c3", "role": "main", "popularity": 3,
+                                        "caption": "Challenges the pawn and opens lines.",
+                                        "idea": { "steps": [
+                                          { "text": "If Black takes on c3, White recaptures with a developing move.",
+                                            "marks": [
+                                              { "type": "threat", "from": "c3", "to": "d4" },
+                                              { "type": "plan", "from": "b1", "to": "c3" }
+                                            ] }
+                                        ] }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              {
+                                "move": "f3e5", "role": "mistake", "popularity": 2,
+                                "name": "Blackburne Shilling trap",
+                                "caption": "Grabs the free pawn. Looks greedy and good…",
+                                "refutation": [
+                                  { "move": "d8g5", "text": "The queen attacks the knight and the g2 pawn at once.",
+                                    "marks": [
+                                      { "type": "threat", "from": "g5", "to": "e5" },
+                                      { "type": "threat", "from": "g5", "to": "g2" },
+                                      { "type": "badge", "square": "g5", "label": "double attack" }
+                                    ] },
+                                  { "move": "e5f7", "text": "White grabs more, hitting the queen and rook…",
+                                    "marks": [
+                                      { "type": "threat", "from": "f7", "to": "g5" },
+                                      { "type": "threat", "from": "f7", "to": "h8" }
+                                    ] },
+                                  { "move": "g5g2", "text": "…but Black takes g2 and attacks the rook.",
+                                    "marks": [{ "type": "threat", "from": "g2", "to": "h1" }] },
+                                  { "move": "h1f1", "text": "The rook steps away." },
+                                  { "move": "g2e4", "text": "Check! The e-file is wide open.",
+                                    "marks": [
+                                      { "type": "threat", "from": "e4", "to": "e1" },
+                                      { "type": "danger", "squares": ["e1"] }
+                                    ] },
+                                  { "move": "c4e2", "text": "Blocking with the bishop is forced." },
+                                  { "move": "d4f3", "text": "Checkmate! The bishop can't take: it's pinned.",
+                                    "marks": [
+                                      { "type": "threat", "from": "f3", "to": "e1" },
+                                      { "type": "danger", "squares": ["e1"] },
+                                      { "type": "badge", "square": "e2", "label": "pinned" }
+                                    ] }
+                                ],
+                                "lesson": "A free pawn can be bait. Before grabbing, ask what your opponent threatens next."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "move": "f7f6", "role": "mistake", "popularity": 1,
+                    "name": "Damiano Defence",
+                    "caption": "Defends e5 with a pawn. Looks safe…",
+                    "refutation": [
+                      { "move": "f3e5", "text": "White just takes! The pawn can't really defend.",
+                        "marks": [{ "type": "threat", "from": "f3", "to": "e5" }] },
+                      { "move": "f6e5", "text": "If Black takes the knight back…" },
+                      { "move": "d1h5", "text": "Queen check! f6 opened the road to Black's king.",
+                        "marks": [
+                          { "type": "threat", "from": "h5", "to": "e8" },
+                          { "type": "danger", "squares": ["e8"] }
+                        ] },
+                      { "move": "g7g6", "text": "Blocking the check…" },
+                      { "move": "h5e5", "text": "Check, and the rook on h8 is attacked too.",
+                        "marks": [
+                          { "type": "threat", "from": "e5", "to": "e8" },
+                          { "type": "threat", "from": "e5", "to": "h8" },
+                          { "type": "badge", "square": "e5", "label": "fork" }
+                        ] }
+                    ],
+                    "lesson": "f6 weakens the king and takes the knight's best square. Defend with pieces, not king-side pawns."
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
