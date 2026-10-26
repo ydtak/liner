@@ -31,6 +31,8 @@ function stockfishEngine(): Plugin {
 }
 
 export default defineConfig({
+  // GitHub Pages serves the site under /<repo>/; the deploy workflow sets BASE_PATH. Local dev stays at /.
+  base: process.env.BASE_PATH ?? '/',
   plugins: [
     react(),
     stockfishEngine(),

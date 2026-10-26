@@ -31,3 +31,7 @@ Content lives in `src/content/openings/*.json`; `npm run content:check` validate
 **Author mode** (development only): run `npm run dev`, then Settings → Open Author mode to build or edit an opening on the board and export its JSON. See [docs/CONTENT.md](docs/CONTENT.md#author-mode-built-in-m5).
 
 The optional engine is [Stockfish](https://stockfishchess.org/) (GPL-3.0) via the `stockfish` npm package; the board is [chessground](https://github.com/lichess-org/chessground) (GPL-3.0).
+
+## Deploying
+
+Every push to `main` runs the tests and publishes the app to GitHub Pages (`.github/workflows/deploy.yml`). The build reads `BASE_PATH` (set to `/<repo>/` in the workflow) so assets resolve under the Pages sub-path; local builds default to `/`.
