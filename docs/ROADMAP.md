@@ -5,7 +5,7 @@ Each milestone ends with something usable on a phone.
 ## M0 · Skeleton ✅
 - Vite + React + TS project, PWA plugin, CSS theme tokens (light/dark).
 - chessground board wrapper with chess.js: make moves, back/forward, orientation.
-- Deploy to a static host so it can be opened on a phone from day one. *(Not done yet: use `npm run dev:phone` on the same Wi-Fi for now.)*
+- Deploy to a static host so it can be opened on a phone from day one. *(Live at https://ydtak.github.io/liner/; every push to `main` redeploys via GitHub Pages.)*
 
 **Done when:** you can play legal moves on your phone and step back/forward.
 
