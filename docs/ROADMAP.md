@@ -39,7 +39,7 @@ Each milestone ends with something usable on a phone.
 - ✅ Stockfish WASM for plain-language verdicts on off-tree moves.
 - Popularity fetch script (Lichess explorer → buckets at authoring time).
 - ✅ In-app Author mode for faster content creation (dev builds: Settings → Open Author mode, or `#/author`).
-- More openings (Queen's Gambit, Scandinavian, Slav, Scotch, 1...e5). *Sicilian Defence (Dragon) added in M3.*
+- More openings: Sicilian (Dragon) added in M3; Queen's Gambit, Scandinavian and Slav added after M5. Still to do: Scotch, 1...e5.
 - Import a game (PGN) and see "where you left your opening prep".
 
 ## Open questions

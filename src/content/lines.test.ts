@@ -102,3 +102,36 @@ describe('sicilian traps', () => {
     expect(trap.refutation.at(-1)!.san).toBe('Kxd1');
   });
 });
+
+describe('new openings: traps and transpositions', () => {
+  it("Queen's Gambit: the Lasker Trap underpromotes to a knight with check", () => {
+    const o = load('queens-gambit');
+    const trap = walk(o, ['d2d4', 'd7d5', 'c2c4', 'e7e5', 'd4e5', 'd5d4', 'e2e3']);
+    expect(trap.role).toBe('mistake');
+    expect(trap.refutation.at(-1)!.san).toBe('fxg1=N+');
+  });
+
+  it("Queen's Gambit: ...Be7 before ...c6 rejoins the Exchange main line", () => {
+    const o = load('queens-gambit');
+    const node = walk(o, ['d2d4', 'd7d5', 'c2c4', 'e7e6', 'b1c3', 'g8f6', 'c4d5', 'e6d5', 'c1g5', 'f8e7', 'e2e3', 'c7c6']);
+    expect(o.childrenOf(node).map((c) => c.san)).toEqual(['Bd3']);
+  });
+
+  it('Scandinavian: ...Qc6 loses the queen to the Bb5 pin', () => {
+    const o = load('scandinavian');
+    const trap = walk(o, ['e2e4', 'd7d5', 'e4d5', 'd8d5', 'b1c3', 'd5c6']);
+    expect(trap.refutation.map((r) => r.san)).toEqual(['Bb5', 'Qxb5', 'Nxb5']);
+  });
+
+  it('Slav: forgetting b7 drops a pawn after Qb3', () => {
+    const o = load('slav');
+    const trap = walk(o, ['d2d4', 'd7d5', 'c2c4', 'c7c6', 'g1f3', 'g8f6', 'e2e3', 'c8f5', 'c4d5', 'c6d5', 'd1b3', 'b8c6']);
+    expect(trap.refutation.at(-1)!.san).toBe('Rxc8');
+  });
+
+  it('Slav: the Nc3 move order rejoins the main line', () => {
+    const o = load('slav');
+    const node = walk(o, ['d2d4', 'd7d5', 'c2c4', 'c7c6', 'b1c3', 'g8f6', 'g1f3']);
+    expect(o.childrenOf(node).map((c) => c.san)).toEqual(['dxc4']);
+  });
+});

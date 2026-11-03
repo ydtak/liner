@@ -10,16 +10,16 @@ Chosen for being **principled** (moves are explainable with beginner concepts) a
 |---|---|---|---|---|---|
 | White | **Italian Game** (1.e4 e5 2.Nf3 Nc6 3.Bc4) | opening | ● | Fast development, aim at f7 | v1 |
 | White | **London System** (d4, Bf4, e3, Nf3, c3, Nbd2, Bd3) | setup | ● | Same solid setup against almost anything | v1 |
-| White | Queen's Gambit (1.d4 d5 2.c4) | opening | ●● | Offer a pawn to win the centre | v1.1 |
+| White | **Queen's Gambit** (1.d4 d5 2.c4, Exchange + minority attack) | opening | ●● | Offer a pawn to win the centre | v1.1 (added) |
 | White | Scotch Game (1.e4 e5 2.Nf3 Nc6 3.d4) | opening | ●● | Open the centre right away | later |
 | Black vs 1.e4 | **Caro-Kann** (1...c6 2...d5) | opening | ● | Solid centre, healthy pieces | v1 |
 | Black vs 1.e4 | **Sicilian Defence** (1...c5, Dragon setup) | opening | ●●● | Unbalanced fight, play to win | v1 (added) |
-| Black vs 1.e4 | Scandinavian (1...d5) | opening | ● | Challenge e4 on move one | v1.1 |
+| Black vs 1.e4 | **Scandinavian** (1...d5 2.exd5 Qxd5 3.Nc3 Qa5) | opening | ● | Challenge e4 on move one | v1.1 (added) |
 | Black vs 1.e4 | 1...e5 vs Italian / Scotch / Ruy Lopez | opening | ●● | Classical, mirror the centre | later |
 | Black vs 1.d4 | **Queen's Gambit Declined** (1...d5 2.c4 e6) | opening | ●● | Hold d5 like a rock | v1 |
-| Black vs 1.d4 | Slav (1...d5 2.c4 c6) | opening | ●● | Hold d5, keep the bishop free | v1.1 |
+| Black vs 1.d4 | **Slav** (1...d5 2.c4 c6) | opening | ●● | Hold d5, keep the bishop free | v1.1 (added) |
 
-v1 ships the **bold** four: one for White (plus one setup), one vs 1.e4, one vs 1.d4.
+v1 shipped the first four; the Sicilian, Queen's Gambit, Scandinavian and Slav followed, for eight in total. Still to do: Scotch and 1...e5.
 
 ## 2. Depth & breadth per opening
 

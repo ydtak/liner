@@ -1,0 +1,275 @@
+{
+  "id": "scandinavian",
+  "name": "Scandinavian Defence",
+  "side": "black",
+  "kind": "opening",
+  "group": "black-vs-e4",
+  "difficulty": 1,
+  "tagline": "Challenge e4 on move one",
+  "intro": "Hit e4 immediately with ...d5. After the queen recaptures and steps aside to a5, Black builds the same solid shape as the Caro-Kann: ...c6, ...Bf5 and ...e6.",
+  "keyPositionFen": "rn2kb1r/pp3ppp/2p1pn2/q4b2/2BP4/2N2N2/PPPB1PPP/R2QK2R w KQkq - 0 8",
+  "plans": [
+    {
+      "name": "Bishop to b4",
+      "text": "...Bb4 pins the c3 knight and adds pressure, so White can't easily kick the queen.",
+      "marks": [
+        { "type": "plan", "from": "f8", "to": "b4" },
+        { "type": "ghost", "square": "b4", "piece": "bB" },
+        { "type": "target", "squares": ["c3"] }
+      ]
+    },
+    {
+      "name": "Knight to d7, then castle",
+      "text": "The last minor piece comes out and the king goes short.",
+      "marks": [
+        { "type": "plan", "from": "b8", "to": "d7" },
+        { "type": "plan", "from": "e8", "to": "g8" }
+      ]
+    },
+    {
+      "name": "Queen to c7",
+      "text": "If White chases the queen, c7 is a safe square behind the pawn wall.",
+      "marks": [
+        { "type": "plan", "from": "a5", "to": "c7" },
+        { "type": "ghost", "square": "c7", "piece": "bQ" }
+      ]
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "move": "e2e4", "role": "main", "popularity": 3,
+        "caption": "White takes a central square.",
+        "children": [
+          {
+            "move": "d7d5", "role": "main", "popularity": 3,
+            "name": "Scandinavian Defence",
+            "caption": "Hits e4 straight away.",
+            "idea": { "steps": [
+              { "text": "No preparation: Black challenges the centre on move one.",
+                "marks": [
+                  { "type": "threat", "from": "d5", "to": "e4" },
+                  { "type": "danger", "squares": ["e4"] }
+                ] }
+            ] },
+            "children": [
+              {
+                "move": "e4d5", "role": "main", "popularity": 3,
+                "caption": "White takes.",
+                "children": [
+                  {
+                    "move": "d8d5", "role": "main", "popularity": 3,
+                    "caption": "The queen takes back.",
+                    "idea": { "steps": [
+                      { "text": "Material is level, and White has no central pawn on e4 any more.",
+                        "marks": [{ "type": "badge", "square": "d5", "label": "queen out" }] },
+                      { "text": "The downside: the queen is exposed and White will chase it with tempo.",
+                        "marks": [{ "type": "danger", "squares": ["d5"] }] }
+                    ] },
+                    "children": [
+                      {
+                        "move": "b1c3", "role": "main", "popularity": 3,
+                        "caption": "Develops and attacks the queen.",
+                        "idea": { "steps": [
+                          { "text": "A developing move that gains time by hitting the queen.",
+                            "marks": [{ "type": "threat", "from": "c3", "to": "d5" }] }
+                        ] },
+                        "children": [
+                          {
+                            "move": "d5a5", "role": "main", "popularity": 3,
+                            "caption": "The queen steps to a5, out of the way.",
+                            "idea": { "steps": [
+                              { "text": "Safe from the knight, and on the a5–e1 diagonal: once the d-pawn moves, the c3 knight is pinned to the king.",
+                                "marks": [
+                                  { "type": "ray", "from": "a5", "to": "c3" },
+                                  { "type": "badge", "square": "c3", "label": "pin soon" }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "d2d4", "role": "main", "popularity": 3,
+                                "caption": "White takes the centre.",
+                                "children": [
+                                  {
+                                    "move": "g8f6", "role": "main", "popularity": 3,
+                                    "caption": "Develops and guards d5.",
+                                    "idea": { "steps": [
+                                      { "text": "Guards d5, so a knight jump there is no longer possible.",
+                                        "marks": [{ "type": "control", "squares": ["d5", "e4"] }] }
+                                    ] },
+                                    "children": [
+                                      {
+                                        "move": "g1f3", "role": "main", "popularity": 3,
+                                        "caption": "White develops.",
+                                        "children": [
+                                          {
+                                            "move": "c7c6", "role": "main", "popularity": 3,
+                                            "caption": "Gives the queen a retreat and guards b5 and d5.",
+                                            "idea": { "steps": [
+                                              { "text": "The queen can now drop back to c7 if chased.",
+                                                "marks": [
+                                                  { "type": "plan", "from": "a5", "to": "c7" },
+                                                  { "type": "control", "squares": ["b5", "d5"] }
+                                                ] }
+                                            ] },
+                                            "children": [
+                                              {
+                                                "move": "f1c4", "role": "main", "popularity": 3,
+                                                "caption": "Bishop to an active diagonal, aiming at f7.",
+                                                "idea": { "steps": [
+                                                  { "text": "f7 is Black's weak spot, just like in many 1.e4 openings.",
+                                                    "marks": [
+                                                      { "type": "ray", "from": "c4", "to": "f7" },
+                                                      { "type": "target", "squares": ["f7"] }
+                                                    ] }
+                                                ] },
+                                                "children": [
+                                                  {
+                                                    "move": "c8f5", "role": "main", "popularity": 3,
+                                                    "caption": "Bishop out before ...e6 locks it in.",
+                                                    "idea": { "steps": [
+                                                      { "text": "Same idea as the Caro-Kann: develop this bishop first.",
+                                                        "marks": [
+                                                          { "type": "ray", "from": "f5", "to": "c2" },
+                                                          { "type": "badge", "square": "f5", "label": "free" }
+                                                        ] }
+                                                    ] },
+                                                    "children": [
+                                                      {
+                                                        "move": "c1d2", "role": "main", "popularity": 3,
+                                                        "caption": "Sneaky: if the c3 knight jumps, the bishop hits the queen.",
+                                                        "idea": { "steps": [
+                                                          { "text": "The bishop lines up behind the knight toward a5.",
+                                                            "marks": [
+                                                              { "type": "ray", "from": "d2", "to": "a5" },
+                                                              { "type": "danger", "squares": ["a5"] }
+                                                            ] },
+                                                          { "text": "Nd5 or Nb5 next would be a discovered attack on the queen.",
+                                                            "marks": [
+                                                              { "type": "plan", "from": "c3", "to": "d5" },
+                                                              { "type": "plan", "from": "c3", "to": "b5" }
+                                                            ] }
+                                                        ] },
+                                                        "children": [
+                                                          {
+                                                            "move": "e7e6", "role": "main", "popularity": 3,
+                                                            "caption": "Covers d5 and builds the pawn wall.",
+                                                            "idea": { "steps": [
+                                                              { "text": "Now c6 and e6 cover both jump squares, so the trick doesn't work.",
+                                                                "marks": [
+                                                                  { "type": "defend", "from": "c6", "to": "b5" },
+                                                                  { "type": "defend", "from": "e6", "to": "d5" }
+                                                                ] },
+                                                              { "text": "The f8 bishop is free to come out too.",
+                                                                "marks": [{ "type": "ray", "from": "f8", "to": "b4" }] }
+                                                            ] }
+                                                          }
+                                                        ]
+                                                      }
+                                                    ]
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "move": "d5c6", "role": "mistake", "popularity": 1,
+                            "name": "Queen on the pin line",
+                            "caption": "The queen eyes g2 from c6. Active-looking…",
+                            "refutation": [
+                              { "move": "f1b5", "text": "Bb5 pins the queen to the king.",
+                                "marks": [
+                                  { "type": "ray", "from": "b5", "to": "e8" },
+                                  { "type": "badge", "square": "c6", "label": "pinned" }
+                                ] },
+                              { "move": "c6b5", "text": "The queen can only take the bishop…" },
+                              { "move": "c3b5", "text": "…and the knight takes the queen. Black has lost the queen for a bishop.",
+                                "marks": [{ "type": "badge", "square": "b5", "label": "queen lost" }] }
+                            ],
+                            "lesson": "Never put your queen on the same line as your king when an enemy bishop can reach that line."
+                          }
+                        ]
+                      },
+                      {
+                        "move": "g1f3", "role": "alt", "popularity": 2,
+                        "name": "Knight to f3 first",
+                        "caption": "White develops without hitting the queen.",
+                        "children": [
+                          {
+                            "move": "c8g4", "role": "main", "popularity": 3,
+                            "caption": "Pins the knight to the queen.",
+                            "idea": { "steps": [
+                              { "text": "Active development: the f3 knight can't move freely now.",
+                                "marks": [
+                                  { "type": "ray", "from": "g4", "to": "d1" },
+                                  { "type": "badge", "square": "f3", "label": "pinned" }
+                                ] }
+                            ] },
+                            "children": [
+                              {
+                                "move": "f1e2", "role": "main", "popularity": 3,
+                                "caption": "White breaks the pin.",
+                                "children": [
+                                  {
+                                    "move": "b8c6", "role": "main", "popularity": 3,
+                                    "caption": "Develops and prepares to castle queenside.",
+                                    "idea": { "steps": [
+                                      { "text": "Quick development: ...O-O-O comes next, with the rook on the d-file.",
+                                        "marks": [
+                                          { "type": "plan", "from": "e8", "to": "c8" },
+                                          { "type": "ghost", "square": "c8", "piece": "bK" }
+                                        ] }
+                                    ] }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "move": "e4e5", "role": "rare", "popularity": 1,
+                "name": "Advance",
+                "caption": "White pushes past instead of taking.",
+                "children": [
+                  {
+                    "move": "c8f5", "role": "main", "popularity": 3,
+                    "caption": "Bishop out, like a Caro-Kann Advance.",
+                    "children": [
+                      {
+                        "move": "d2d4", "role": "main", "popularity": 3,
+                        "caption": "White supports e5.",
+                        "children": [
+                          {
+                            "move": "e7e6", "role": "main", "popularity": 3,
+                            "caption": "Solid wall, bishop already outside it.",
+                            "idea": { "steps": [
+                              { "text": "Black gets a good French-style position with the 'bad' bishop already developed.",
+                                "marks": [{ "type": "badge", "square": "f5", "label": "free" }] }
+                            ] }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
